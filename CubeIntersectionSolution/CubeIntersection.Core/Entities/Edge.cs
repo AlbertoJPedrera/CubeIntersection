@@ -14,6 +14,8 @@
         {
             Start = center - length / 2.0;
             End = center + length / 2.0;
+            PointCenter = center;
+            Length = length;
         }
     }
 }

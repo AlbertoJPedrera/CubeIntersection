@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using static CubeIntersection.Core.Repositories.Base.IRepository;
+using static CubeIntersection.Infrastructure.Repositories.Base.IRepository;
 
 namespace CubeIntersection.Infrastructure.Repositories.Base
 {

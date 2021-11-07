@@ -4,4 +4,14 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CubeIntersection.Application.Contract\CubeIntersection.Application.Contract.csproj" />
+    <ProjectReference Include="..\CubeIntersection.Core.Contract\CubeIntersection.Infrastructure.Contract.csproj" />
+    <ProjectReference Include="..\CubeIntersection.Core\CubeIntersection.Core.csproj" />
+  </ItemGroup>
+
 </Project>

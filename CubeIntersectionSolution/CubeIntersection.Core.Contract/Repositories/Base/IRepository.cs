@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace CubeIntersection.Core.Repositories.Base
+namespace CubeIntersection.Infrastructure.Repositories.Base
 {
     public interface IRepository
     {

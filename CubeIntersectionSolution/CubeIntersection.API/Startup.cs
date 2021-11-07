@@ -2,11 +2,12 @@ using CubeIntersection.Infrastructure.Data;
 using CubeIntersection.Infrastructure.Repositories.Base;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using static CubeIntersection.Core.Repositories.Base.IRepository;
+using static CubeIntersection.Infrastructure.Repositories.Base.IRepository;
 
 namespace CubeIntersection.API
 {
@@ -23,7 +24,7 @@ namespace CubeIntersection.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<CubeIntersectionContext>(m => m.UseSqlServer(Configuration.GetConnectionString("EmployeeDB")), ServiceLifetime.Singleton);
+            services.AddDbContext<CubeIntersectionContext>(m => m.UseInMemoryDatabase("CubeIntersection"));
 
             services.AddSwaggerGen(c =>
             {
@@ -32,9 +33,7 @@ namespace CubeIntersection.API
 
 
             services.AddAutoMapper(typeof(Startup));
-            services.AddMediatR(typeof(CreateEmployeeHandler).GetTypeInfo().Assembly);
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            services.AddTransient<IEmployeeRepository, EmployeeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,9 +42,10 @@ namespace CubeIntersection.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CubeIntersection.API v1"));
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CubeIntersection.API v1"));
 
             app.UseHttpsRedirection();
 

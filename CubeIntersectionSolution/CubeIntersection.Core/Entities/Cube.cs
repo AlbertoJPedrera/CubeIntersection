@@ -2,17 +2,17 @@
 {
     public class Cube
     {
-        private Edge width;
+        public Edge Width;
 
-        private Edge height;
+        public Edge Height;
 
-        private Edge depth;
+        public Edge Depth;
 
         public Cube(Point center, double edgeLength)
         {
-            width = new Edge(center.X, edgeLength);
-            height = new Edge(center.Y, edgeLength);
-            depth = new Edge(center.Z, edgeLength);
+            Width = new Edge(center.X, edgeLength);
+            Height = new Edge(center.Y, edgeLength);
+            Depth = new Edge(center.Z, edgeLength);
         }
     }
 }
