@@ -4,4 +4,14 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CubeIntersection.Application.Contract\CubeIntersection.Application.Contract.csproj" />
+    <ProjectReference Include="..\CubeIntersection.Application\CubeIntersection.Application.csproj" />
+  </ItemGroup>
+
 </Project>

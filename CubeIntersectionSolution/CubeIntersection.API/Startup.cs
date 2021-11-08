@@ -1,3 +1,6 @@
+using CubeIntersection.Application.Contract.Services;
+using CubeIntersection.Application.Services;
+using CubeIntersection.Infrastructure.Contract.Extensions;
 using CubeIntersection.Infrastructure.Data;
 using CubeIntersection.Infrastructure.Repositories.Base;
 using Microsoft.AspNetCore.Builder;
@@ -23,6 +26,11 @@ namespace CubeIntersection.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddServices();
+
+            // Add Web Layer
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddControllers();
             services.AddDbContext<CubeIntersectionContext>(m => m.UseInMemoryDatabase("CubeIntersection"));
 

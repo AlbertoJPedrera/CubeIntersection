@@ -11,6 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CubeIntersection.Application.Contract\CubeIntersection.Application.Contract.csproj" />
+    <ProjectReference Include="..\CubeIntersection.Application\CubeIntersection.Application.csproj" />
+    <ProjectReference Include="..\CubeIntersection.Core.Contract\CubeIntersection.Infrastructure.Contract.csproj" />
     <ProjectReference Include="..\CubeIntersection.Infrastructure\CubeIntersection.Infrastructure.csproj" />
   </ItemGroup>
 

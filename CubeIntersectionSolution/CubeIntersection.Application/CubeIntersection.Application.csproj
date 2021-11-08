@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CubeIntersection.Application.Contract\CubeIntersection.Application.Contract.csproj" />
-    <ProjectReference Include="..\CubeIntersection.Core.Contract\CubeIntersection.Infrastructure.Contract.csproj" />
     <ProjectReference Include="..\CubeIntersection.Core\CubeIntersection.Core.csproj" />
   </ItemGroup>
 

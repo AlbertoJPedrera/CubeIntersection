@@ -2,10 +2,19 @@
 {
     public class PointModel
     {
-        public double X { get; set; }
+        private double X;
 
-        public double Y { get; set; }
+        private double Y;
 
-        public double Z { get; set; }
+        private double Z;
+
+        public PointModel(double x, double y, double z)
+        {
+            X = x;
+
+            Y = y;
+            
+            Z = z;
+        }
     }
 }

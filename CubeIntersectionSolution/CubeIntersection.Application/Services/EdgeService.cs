@@ -1,9 +1,10 @@
 ﻿using CubeIntersection.Application.Contract.Models;
+using CubeIntersection.Application.Contract.Services;
 using System;
 
 namespace CubeIntersection.Application.Services
 {
-    public class EdgeService
+    public class EdgeService :IEdgeService
     {
         public double Overlap(EdgeModel edgeA, EdgeModel edgeB) => Math.Max(0, Difference(edgeA, edgeB));
 

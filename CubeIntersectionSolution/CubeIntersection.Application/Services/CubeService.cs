@@ -4,7 +4,7 @@ using System;
 
 namespace CubeIntersection.Application.Services
 {
-    public class CubeService
+    public class CubeService : ICubeService
     {
         private readonly IEdgeService _edgeService;
 

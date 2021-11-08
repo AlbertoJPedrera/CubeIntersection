@@ -11,9 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CubeIntersection.Core", "Cu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CubeIntersection.Infrastructure", "CubeIntersection.Infrastructure\CubeIntersection.Infrastructure.csproj", "{57EEE9C6-4C5C-4E7B-9277-687D50D9DEFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeIntersection.Application.Contract", "CubeIntersection.Application.Contract\CubeIntersection.Application.Contract.csproj", "{9F124912-E286-4F18-8B43-2E1548A2D4D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CubeIntersection.Application.Contract", "CubeIntersection.Application.Contract\CubeIntersection.Application.Contract.csproj", "{9F124912-E286-4F18-8B43-2E1548A2D4D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeIntersection.Infrastructure.Contract", "CubeIntersection.Core.Contract\CubeIntersection.Infrastructure.Contract.csproj", "{A8E901C2-BB2E-441B-A145-7247E138C6E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CubeIntersection.Infrastructure.Contract", "CubeIntersection.Core.Contract\CubeIntersection.Infrastructure.Contract.csproj", "{A8E901C2-BB2E-441B-A145-7247E138C6E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeIntersection.Application.Tests", "CubeIntersection.Application.Tests\CubeIntersection.Application.Tests.csproj", "{A5FAFB67-3015-4E03-80C6-4B7AC2ADBC1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeIntersection.Infrastructure.Tests", "CubeIntersection.Infrastructure.Tests\CubeIntersection.Infrastructure.Tests.csproj", "{2E4898C4-AE7D-41C0-B87F-C19C7DB42976}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{A8E901C2-BB2E-441B-A145-7247E138C6E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8E901C2-BB2E-441B-A145-7247E138C6E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8E901C2-BB2E-441B-A145-7247E138C6E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5FAFB67-3015-4E03-80C6-4B7AC2ADBC1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5FAFB67-3015-4E03-80C6-4B7AC2ADBC1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5FAFB67-3015-4E03-80C6-4B7AC2ADBC1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5FAFB67-3015-4E03-80C6-4B7AC2ADBC1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E4898C4-AE7D-41C0-B87F-C19C7DB42976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E4898C4-AE7D-41C0-B87F-C19C7DB42976}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E4898C4-AE7D-41C0-B87F-C19C7DB42976}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E4898C4-AE7D-41C0-B87F-C19C7DB42976}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
