@@ -31,8 +31,8 @@ namespace CubeIntersection.Application.Tests
 
             EdgeModel edgeB = new EdgeModel
             {
-                Start = 1.0,
-                End = 1.0
+                Start = 3.0,
+                End = 3.0
             };
 
             double result = _edgeService.Overlap(edgeA, edgeB);

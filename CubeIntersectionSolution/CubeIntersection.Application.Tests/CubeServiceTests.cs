@@ -1,5 +1,7 @@
 using CubeIntersection.Application.Contract.Models;
 using CubeIntersection.Application.Contract.Services;
+using CubeIntersection.Infrastructure.Contract.Extensions;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -8,63 +10,95 @@ namespace CubeIntersection.Application.Tests
     [TestClass]
     public class CubeServiceTests
     {
-
-        private readonly Mock<ICubeService> _mockCubeService;
+        private ICubeService _cubeService;
 
         public CubeServiceTests()
         {
-            _mockCubeService = new Mock<ICubeService>();
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddServices();
+            var serviceProvider = serviceCollection.BuildServiceProvider();
+
+            _cubeService = serviceProvider.GetService<ICubeService>();
         }
 
-        //[TestMethod]
-        //public void non_intersecting_cubes()
-        //{
-        //    Initialization(new PointModel(2, 2, 2 ));
+        [TestMethod]
+        public void no_intersectionVolumeWith()
+        {
+            EdgeModel edgeA = new EdgeModel
+            {
+                Start = 1.0,
+                End = 2.0
+            };
 
-        //    var cubeA = Cube().CenteredAt(2, 2, 2).WithEdgeLength(2).Build();
-        //    var cubeB = Cube().CenteredAt(10, 10, 10).WithEdgeLength(2).Build();
+            EdgeModel edgeB = new EdgeModel
+            {
+                Start = 10.0,
+                End = 12.0
+            };
 
-        //    Assert.IsFalse(cubeA.CollidesWith(cubeB));
-        //}
+            double result = _cubeService.IntersectionVolumeWith(edgeA, edgeB);
 
-        //[TestMethod]
-        //public void cubes_that_overlap()
-        //{
-        //    var cubeA = Cube().CenteredAt(2, 2, 2).WithEdgeLength(2).Build();
-        //    var cubeB = Cube().CenteredAt(3, 2, 2).WithEdgeLength(2).Build();
+            Assert.AreEqual(result, 0.0);
+        }
 
-        //    Assert.IsTrue(cubeA.CollidesWith(cubeB));
-        //}
+        [TestMethod]
+        public void intersectionVolumeWith()
+        {
+            EdgeModel edgeA = new EdgeModel
+            {
+                Start = 1.0,
+                End = 3.0
+            };
 
-        //[TestMethod]
-        //public void cubes_that_touch()
-        //{
-        //    var cubeA = Cube().CenteredAt(2, 2, 2).WithEdgeLength(2).Build();
-        //    var cubeB = Cube().CenteredAt(4, 2, 2).WithEdgeLength(2).Build();
+            EdgeModel edgeB = new EdgeModel
+            {
+                Start = 1.0,
+                End = 2.0
+            };
 
-        //    Assert.IsTrue(cubeA.CollidesWith(cubeB));
-        //}
-        
-        //private PointModel Initialization(PointModel point)
-        //{
-        //    return  new CubeModel
-        //    {
-        //        PointCoordinates = PointModelFactory.Create(2, 2, 2)
-        //    };
+            double result = _cubeService.IntersectionVolumeWith(edgeA, edgeB);
 
-        //    //secondCube = new CubeModel
-        //    //{
-        //    //    PointCoordinates = PointModelFactory.Create(4, 2, 2)
-        //    //};
+            Assert.AreNotEqual(result, 0.0);
+        }
 
-        //    //edgesLength = 2;
+        [TestMethod]
+        public void no_collidesWith()
+        {
+            EdgeModel edgeA = new EdgeModel
+            {
+                Start = 1.0,
+                End = 1.0
+            };
 
-        //    //cubeRequest = new CubeModel
-        //    //{
-        //    //    FirstCube3D = firstCube3D,
-        //    //    SecondCube3D = secondCube3D,
-        //    //    EdgesLength = edgesLength
-        //    //};
-        //}
+            EdgeModel edgeB = new EdgeModel
+            {
+                Start = 3.0,
+                End = 3.0
+            };
+
+            bool result = _cubeService.CollidesWith(edgeA, edgeB);
+
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void collidesWith()
+        {
+            EdgeModel edgeA = new EdgeModel
+            {
+                Start = 1.0,
+                End = 3.0
+            };
+
+            EdgeModel edgeB = new EdgeModel
+            {
+                Start = 1.0,
+                End = 2.0
+            };
+
+            bool result = _cubeService.CollidesWith(edgeA, edgeB);
+
+            Assert.IsTrue(result);
+        }
     }
 }
